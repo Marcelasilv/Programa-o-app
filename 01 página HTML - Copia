@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificar Habilitação</title>
+</head>
+<body>
+    <h1>Verificar Habilitação</h1>
+    <label for="idade">Idade:</label>
+    <input type="number" id="idade" name="idade"><br><br>
+    <label for="carteira">Possui carteira de motorista:</label>
+    <input type="checkbox" id="carteira" name="carteira"><br><br>
+    <button onclick="verificarHabilitacao()">Verificar</button>
+    <p id="resultado"></p>
+
+    <script>
+        function verificarHabilitacao() {
+            const idade = document.getElementById('idade').value;
+            const carteira = document.getElementById('carteira').checked;
+            const resultado = document.getElementById('resultado');
+
+            if (idade >= 18 && carteira) {
+                resultado.textContent = "Você pode dirigir.";
+            } else {
+                resultado.textContent = "Você não pode dirigir.";
+            }
+        }
+    </script>
+</body>
+</html>

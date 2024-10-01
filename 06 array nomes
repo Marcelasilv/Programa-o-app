@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operações com Arrays</title>
+</head>
+<body>
+    <h1>Operações com Arrays</h1>
+    <script>
+        let nomes = ["Ana", "Bruno", "Carlos"];
+
+        // a. Adicione três novos nomes ao final do array
+        nomes.push("Daniel", "Eduardo", "Fernanda");
+        console.log("Após adicionar três nomes:", nomes);
+
+        // b. Remova o primeiro nome do array
+        nomes.shift();
+        console.log("Após remover o primeiro nome:", nomes);
+
+        // c. Adicione um nome no início do array
+        nomes.unshift("Gabriel");
+        console.log("Após adicionar um nome no início:", nomes);
+
+        // d. Localize o índice de um nome específico no array
+        const indice = nomes.indexOf("Carlos");
+        console.log("Índice de 'Carlos':", indice);
+
+        // e. Una todos os nomes em uma string separados por vírgula
+        const nomesString = nomes.join(", ");
+        console.log("Nomes unidos por vírgula:", nomesString);
+    </script>
+</body>
+</html>

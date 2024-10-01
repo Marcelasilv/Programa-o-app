@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Adivinhação</title>
+</head>
+<body>
+    <h1>Jogo de Adivinhação</h1>
+    <input type="number" id="palpite" placeholder="Seu palpite">
+    <button onclick="adivinhar()">Adivinhar</button>
+    <p id="mensagem"></p>
+
+    <script>
+        const numeroAleatorio = Math.floor(Math.random() * 100) + 1;
+        let tentativas = 10;
+
+        function adivinhar() {
+            const palpite = document.getElementById('palpite').value;
+            const mensagem = document.getElementById('mensagem');
+
+            if (tentativas > 0) {
+                if (palpite == numeroAleatorio) {
+                    mensagem.textContent = "Parabéns! Você acertou!";
+                } else if (palpite < numeroAleatorio) {
+                    mensagem.textContent = "Muito baixo!";
+                } else {
+                    mensagem.textContent = "Muito alto!";
+                }
+                tentativas--;
+            } else {
+                mensagem.textContent = "Você perdeu! O número era " + numeroAleatorio;
+            }
+        }
+    </script>
+</body>
+</html>

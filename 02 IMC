@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de IMC</title>
+</head>
+<body>
+    <h1>Calculadora de IMC</h1>
+    <label for="peso">Peso (kg):</label>
+    <input type="number" id="peso" name="peso"><br><br>
+    <label for="altura">Altura (m):</label>
+    <input type="number" id="altura" name="altura" step="0.01"><br><br>
+    <button onclick="adicionarUsuario()">Adicionar Usuário</button>
+    <ul id="listaUsuarios"></ul>
+
+    <script>
+        const usuarios = [];
+
+        function calcularIMC(peso, altura) {
+            return (peso / (altura * altura)).toFixed(2);
+        }
+
+        function adicionarUsuario() {
+            const peso = document.getElementById('peso').value;
+            const altura = document.getElementById('altura').value;
+            const imc = calcularIMC(peso, altura);
+            usuarios.push({ peso, altura, imc });
+            atualizarLista();
+        }
+
+        function atualizarLista() {
+            const lista = document.getElementById('listaUsuarios');
+            lista.innerHTML = '';
+            usuarios.forEach((usuario, index) => {
+                const item = document.createElement('li');
+                item.textContent = `Usuário ${index + 1}: Peso: ${usuario.peso} kg, Altura: ${usuario.altura} m, IMC: ${usuario.imc}`;
+                lista.appendChild(item);
+            });
+        }
+    </script>
+</body>
+</html>

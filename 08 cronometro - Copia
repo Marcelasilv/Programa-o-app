@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cronômetro</title>
+</head>
+<body>
+    <h1>Cronômetro</h1>
+    <p id="tempo">00:00</p>
+    <button onclick="iniciar()">Iniciar</button>
+    <button onclick="pausar()">Pausar</button>
+    <button onclick="zerar()">Zerar</button>
+
+    <script>
+        let segundos = 0;
+        let intervalo;
+
+        function atualizarTempo() {
+            const minutos = Math.floor(segundos / 60);
+            const segundosRestantes = segundos % 60;
+            document.getElementById('tempo').textContent = 
+                `${minutos < 10 ? '0' : ''}${minutos}:${segundosRestantes < 10 ? '0' : ''}${segundosRestantes}`;
+        }
+
+        function iniciar() {
+            intervalo = setInterval(() => {
+                segundos++;
+                atualizarTempo();
+            }, 1000);
+        }
+
+        function pausar() {
+            clearInterval(intervalo);
+        }
+
+        function zerar() {
+            clearInterval(intervalo);
+            segundos = 0;
+            atualizarTempo();
+        }
+    </script>
+</body>
+</html>
